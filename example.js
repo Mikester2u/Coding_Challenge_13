@@ -53,3 +53,16 @@ const showLoading = () => {
     errorElement.classList.add('hidden');
     productContainer.classList.add('hidden');
 };
+
+const handleNavigation = (direction) => {
+    productContainer.classList.add('fade-out');
+    setTimeout(() => {
+        currentIndex = (currentIndex + direction + products.length) % products.length;
+        displayProduct(currentIndex);
+        productContainer.classList.remove('fade-out');
+    }, 500);
+};
+
+prevBtn.addEventListener('click', () => handleNavigation(-1));
+nextBtn.addEventListener('click', () => handleNavigation(1));
+
