@@ -47,3 +47,9 @@ const showError = (message) => {
     errorElement.textContent = message;
     errorElement.classList.remove('hidden');
 };
+
+const showLoading = () => {
+    loadingElement.classList.remove('hidden');
+    errorElement.classList.add('hidden');
+    productContainer.classList.add('hidden');
+};
