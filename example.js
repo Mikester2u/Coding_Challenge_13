@@ -1,0 +1,35 @@
+//U22562170
+
+const API_URL = 'https://course-api.com/react-store-products';
+const loadingElement = document.getElementById('loading');
+const errorElement = document.getElementById('error');
+const productContainer = document.getElementById('product-container');
+const productImage = document.getElementById('product-image');
+const productName = document.getElementById('product-name');
+const productPrice = document.getElementById('product-price');
+const productDescription = document.getElementById('product-description');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+
+let products = [];
+let currentIndex = 0;
+
+const fetchData = async () => {
+    try {
+        const response = await fetch(API_URL);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        products = data;
+        if (products.length > 0) {
+            displayProduct(0);
+        } else {
+            showError('No products available');
+        }
+    } catch (error) {
+        showError(error.message);
+    } finally {
+        loadingElement.classList.add('hidden');
+    }
+};
