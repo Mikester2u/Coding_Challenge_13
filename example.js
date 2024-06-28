@@ -33,3 +33,17 @@ const fetchData = async () => {
         loadingElement.classList.add('hidden');
     }
 };
+
+const displayProduct = (index) => {
+    const product = products[index];
+    productImage.src = product.image;
+    productName.textContent = product.name;
+    productPrice.textContent = `$${product.price}`;
+    productDescription.textContent = product.description;
+    productContainer.classList.remove('hidden');
+};
+
+const showError = (message) => {
+    errorElement.textContent = message;
+    errorElement.classList.remove('hidden');
+};
