@@ -66,3 +66,5 @@ const handleNavigation = (direction) => {
 prevBtn.addEventListener('click', () => handleNavigation(-1));
 nextBtn.addEventListener('click', () => handleNavigation(1));
 
+showLoading();
+fetchData();
